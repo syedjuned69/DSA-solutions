@@ -1,0 +1,14 @@
+https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1/#
+----------------------------------------------------------------------------------
+class Solution {
+public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    long long ans=LLONG_MAX,e=m-1;
+    sort(a.begin(),a.end());
+    for(int i=0;i<=n-m;i++){
+        if(a[e]-a[i]<ans){ans=a[e]-a[i];}
+        e++;
+    }return ans;
+    
+    }
+};
