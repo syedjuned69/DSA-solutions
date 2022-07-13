@@ -1,0 +1,26 @@
+class Solution {
+public:
+    void mark(vector<vector<int>> &matrix,vector<int>zeros,int rows,int cols){
+     for(int i=0;i<zeros.size();i=i+2){
+        for(int k=0;k<cols;k++){
+         matrix[k][zeros[i+1]]=0;
+        }  
+         for(int k=0;k<rows;k++){
+         matrix[zeros[i]][k]=0;
+        }
+     }
+     
+    }
+    
+    void setZeroes(vector<vector<int>>& matrix) {
+        vector<int>zeros;
+        int rows=matrix[0].size();
+        int cols=matrix.size();
+        for(int i=0;i<cols;i++){
+            for(int j=0;j<rows;j++){
+                if(matrix[i][j]==0){zeros.push_back(i);zeros.push_back(j);}
+            }
+        }
+        mark(matrix,zeros,rows,cols);
+    }
+};
